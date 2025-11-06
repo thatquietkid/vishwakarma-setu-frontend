@@ -1,16 +1,116 @@
-# React + Vite
+# 🏗️ Vishwakarma Setu - B2B Machinery Marketplace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the official **frontend repository** for **Vishwakarma Setu**, a single-page application (SPA) serving as the trusted **B2B marketplace for verified, used industrial machinery**.  
+It provides a secure and reliable platform for **Buyers**, **Sellers**, and **Partners**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- **Multi-Page Navigation:** Seamless routing using React Router between Landing, Login, and Sign-Up pages.  
+- **Component-Based Architecture:** Organized, reusable UI components such as Navbar and Footer.  
+- **Responsive Design:** Fully responsive layout built with Tailwind CSS for desktop, tablet, and mobile.  
+- **Modern Tooling:** Powered by Vite for fast development and Hot Module Replacement (HMR).  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Category | Technology |
+|-----------|-------------|
+| **Framework** | React |
+| **Build Tool** | Vite |
+| **Styling** | Tailwind CSS |
+| **Routing** | React Router |
+| **Forms** | @tailwindcss/forms |
+
+---
+
+## 📁 Project Structure
+
+```
+
+src/
+├── App.jsx             # Main app component, handles routing
+├── index.css           # Global styles & Tailwind directives
+├── main.jsx            # Main entry point, sets up React Router
+│
+├── components/
+│   ├── layout/         # Reusable components (Navbar.jsx, Footer.jsx)
+│   └── landing/        # Components used only on the landing page
+│
+└── pages/
+├── LandingPage.jsx   # The main homepage (/)
+├── LoginPage.jsx     # The login page (/login)
+└── SignUpPage.jsx    # The registration page (/signup)
+
+````
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to get a local copy up and running.
+
+### Prerequisites
+
+- Node.js **v18 or newer**  
+- npm (comes with Node.js)
+
+---
+
+### Installation
+
+**1. Clone the repository:**
+
+```bash
+git clone https://github.com/thatquietkid/vishwakarma-setu.git
+```
+
+**2. Navigate to the project directory:**
+
+```bash
+cd vishwakarma-setu
+```
+
+**3. Install dependencies:**
+
+```bash
+npm install
+```
+
+---
+
+## 🧩 Available Scripts
+
+### Start the development server
+
+Runs the app in development mode with HMR.
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+```bash
+npm run dev
+```
+
+### Build for production
+
+Bundles and optimizes the app for production.
+Output files are generated in the `dist/` folder.
+
+```bash
+npm run build
+```
+
+### Lint the code
+
+Checks for linting errors and automatically fixes them when possible.
+
+```bash
+npm run lint
+```
+
+---
+
+## 📜 License
+
+This project is licensed under the [**MIT License**](LICENSE) — feel free to use and modify it as needed.
