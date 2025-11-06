@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function SignUpPage() {
   const [companyName, setCompanyName] = useState('');
@@ -10,10 +10,72 @@ function SignUpPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
 
-  const handleSubmit = (e) => {
+  // New state for loading and errors
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // Hook to redirect on success
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log({ companyName, email, password, confirmPassword, agreedToTerms });
+    setError(''); // Clear previous errors
+
+    // --- Start of new logic ---
+
+    // 1. Frontend Validation
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+    if (!agreedToTerms) {
+      setError("You must agree to the terms and conditions.");
+      return;
+    }
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      // 2. Define API endpoint
+      const apiUrl = "http://localhost:1325/register"; // Your Go backend URL
+
+      // 3. Create request body
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          companyName: companyName,
+          email: email,
+          password: password,
+        }),
+      });
+
+      // 4. Parse JSON response
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Handle backend errors (e.g., "Email already exists")
+        setError(data.error || 'Registration failed. Please try again.');
+        setLoading(false);
+      } else {
+        // 5. Success!
+        console.log('Registration successful:', data);
+        setLoading(false);
+        // Redirect to the login page after successful registration
+        navigate('/login');
+      }
+
+    } catch (err) {
+      // Handle network errors
+      console.error('Fetch error:', err);
+      setError('Could not connect to the server. Please try again later.');
+      setLoading(false);
+    }
+    // --- End of new logic ---
   };
 
   return (
@@ -44,6 +106,14 @@ function SignUpPage() {
           </div>
           {/* Form */}
           <form className="space-y-6" onSubmit={handleSubmit}>
+            
+            {/* Error Message Display */}
+            {error && (
+              <div className="p-3 rounded-lg bg-red-100 text-red-800 border border-red-300 dark:bg-red-900/50 dark:text-red-200 dark:border-red-700">
+                <p>{error}</p>
+              </div>
+            )}
+            
             {/* Company Name */}
             <div className="flex flex-col">
               <label className="text-text-light dark:text-gray-300 text-sm font-medium leading-normal pb-2" htmlFor="company-name">Company Name</label>
@@ -54,6 +124,7 @@ function SignUpPage() {
                 type="text"
                 value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
+                required // Add required
               />
             </div>
             {/* Email Address */}
@@ -66,6 +137,7 @@ function SignUpPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required // Add required
               />
             </div>
             {/* Create Password */}
@@ -75,10 +147,11 @@ function SignUpPage() {
                 <input
                   className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg rounded-r-none border-r-0 text-text-light dark:text-gray-200 focus:outline-0 focus:ring-2 focus:ring-accent/50 focus:z-10 border border-gray-300 dark:border-gray-600 bg-background-light dark:bg-gray-800/50 focus:border-accent/70 h-12 placeholder:text-secondary/80 dark:placeholder:text-gray-500 p-3 pr-2 text-base font-normal leading-normal"
                   id="password"
-                  placeholder="Enter a secure password"
+                  placeholder="Enter a secure password (min. 8 chars)"
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  required // Add required
                 />
                 <button
                   className="text-secondary dark:text-gray-400 flex border border-gray-300 dark:border-gray-600 bg-background-light dark:bg-gray-800/50 items-center justify-center px-3 rounded-r-lg border-l-0 hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -102,6 +175,7 @@ function SignUpPage() {
                   type={showConfirmPassword ? 'text' : 'password'}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
+                  required // Add required
                 />
                 <button
                   className="text-secondary dark:text-gray-400 flex border border-gray-300 dark:border-gray-600 bg-background-light dark:bg-gray-800/50 items-center justify-center px-3 rounded-r-lg border-l-0 hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -122,6 +196,7 @@ function SignUpPage() {
                 type="checkbox"
                 checked={agreedToTerms}
                 onChange={(e) => setAgreedToTerms(e.target.checked)}
+                required // Add required
               />
               <label className="text-sm text-secondary dark:text-gray-400" htmlFor="terms">
                 I agree to the
@@ -132,10 +207,11 @@ function SignUpPage() {
             {/* Sign Up Button */}
             <div className="pt-2">
               <button
-                className="w-full flex items-center justify-center rounded-lg bg-accent h-12 px-6 text-base font-bold text-white shadow-sm hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 dark:ring-offset-background-dark transition-colors duration-200"
+                className="w-full flex items-center justify-center rounded-lg bg-accent h-12 px-6 text-base font-bold text-white shadow-sm hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 dark:ring-offset-background-dark transition-colors duration-200 disabled:opacity-50"
                 type="submit"
+                disabled={loading} // Disable button while loading
               >
-                Sign Up
+                {loading ? 'Signing Up...' : 'Sign Up'}
               </button>
             </div>
           </form>

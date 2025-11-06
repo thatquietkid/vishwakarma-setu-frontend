@@ -1,7 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom';
+// --- Import our new useAuth hook ---
+import { useAuth } from '../../context/AuthContext'; // Note: ../../ path
 
 function Navbar() {
+  // --- Get the user and logout function from context ---
+  const { user, logout } = useAuth();
+
   return (
     <header className="bg-white dark:bg-background-dark/50 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,21 +34,40 @@ function Navbar() {
               <a className="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-accent" href="#">About Us</a>
               <a className="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-accent" href="#">Contact</a>
             </div>
+
+            {/* --- THIS IS THE UPDATE --- */}
+            {/* Use a ternary operator to show different buttons */}
             <div className="flex gap-2">
-              {/* Updated to Link */}
-              <Link
-                to="/login"
-                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 dark:bg-gray-700 text-text-light dark:text-text-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 dark:hover:bg-gray-600"
-              >
-                <span className="truncate">Login</span>
-              </Link>
-              {/* Updated to Link */}
-              <Link
-                to="/signup"
-                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-accent text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90"
-              >
-                <span className="truncate">Sign Up</span>
-              </Link>
+              {user ? (
+                // --- If user IS logged in ---
+                <>
+                  <span className="flex items-center text-sm text-text-light dark:text-text-dark">
+                    Hi, {user.companyName}
+                  </span>
+                  <button
+                    onClick={logout}
+                    className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 dark:bg-gray-700 text-text-light dark:text-text-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 dark:hover:bg-gray-600"
+                  >
+                    <span className="truncate">Logout</span>
+                  </button>
+                </>
+              ) : (
+                // --- If user IS NOT logged in ---
+                <>
+                  <Link
+                    to="/login"
+                    className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 dark:bg-gray-700 text-text-light dark:text-text-dark text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 dark:hover:bg-gray-600"
+                  >
+                    <span className="truncate">Login</span>
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-accent text-white text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90"
+                  >
+                    <span className="truncate">Sign Up</span>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
