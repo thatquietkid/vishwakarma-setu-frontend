@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vishwakarma Setu - Search Results</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            colors: {
+                "primary": "#0D47A1",
+                "secondary": "#424242",
+                "accent": "#FFC107",
+                "background-light": "#F5F5F5",
+                "background-dark": "#101022",
+            },
+            fontFamily: {
+                "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+        },
+    },
+}
+</script>
+<style>
+body {
+    font-family: 'Inter', sans-serif;
+}
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+}
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-secondary">
+
+<!-- Top Navigation Bar -->
+<header class="bg-white dark:bg-background-dark/50 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary dark:text-white">
+<span class="material-symbols-outlined text-3xl">hub</span>
+<h1 class="text-xl font-bold">Vishwakarma Setu</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-secondary dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium" href="#">Home</a>
+<a class="text-secondary dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium" href="#">Categories</a>
+<a class="text-secondary dark:text-gray-300 hover:text-primary dark:hover:text-white text-sm font-medium" href="#">Sell a Machine</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:block w-72">
+<label class="flex flex-col w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-10 bg-background-light dark:bg-background-dark">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 flex items-center justify-center pl-3">search</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-secondary dark:text-gray-200 focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-gray-400 dark:placeholder:text-gray-500 pl-2 text-sm" placeholder="Search for 'CNC Lathe'" value="CNC Lathe"/>
+</div>
+</label>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors">
+<span class="truncate">Log In</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 hidden sm:block" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuASEsfZRIgtJV4uX_tS3L-hGr3fjvmF4KdmIXWBuNfkF72_y66FNv3amUcocIFktp0sulXimuHZDmfDjEOwByeOKrn334dkmjWDkQ5w63kdzWVmrzOnaYmlaSTsfj6J-051A8vsxfE2g7c_uqoOT9C1Dru9CBmcRGrj3QRcFyHwezFGAF7__qQoLZCFR_3psQgGsxUAAHcHwEjNuuQbe9bpY95qkwAqWjDMSXl-vEKFlfZqb6i8uPBaUvIcGSyXHEfk7NC3IrnSOA");'></div>
+</div>
+</div>
+</div>
+</header>
+
+<!-- Main Content -->
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Filters Sidebar (Left Column) -->
+<aside class="w-full lg:w-1/4 xl:w-1/5">
+<div class="sticky top-24">
+<div class="bg-white dark:bg-background-dark/50 rounded-lg p-6 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-lg font-bold text-gray-800 dark:text-white">Filters</h2>
+<button class="text-sm font-medium text-primary hover:underline">Clear All</button>
+</div>
+<!-- Filter Sections -->
+<div class="space-y-6">
+<!-- Machine Type -->
+<div>
+<h3 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Machine Type</h3>
+<div class="space-y-2 text-sm">
+<label class="flex items-center gap-x-3"><input checked class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/><span>CNC Lathe</span></label>
+<label class="flex items-center gap-x-3"><input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/><span>Milling Machine</span></label>
+<label class="flex items-center gap-x-3"><input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/><span>Grinding Machine</span></label>
+<label class="flex items-center gap-x-3"><input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/><span>Drill Press</span></label>
+<a class="text-primary text-xs font-medium hover:underline" href="#">Show more</a>
+</div>
+</div>
+<!-- Manufacturer -->
+<div>
+<h3 class="font-semibold text-gray-800 dark:text-gray-200 mb-3">Manufacturer</h3>
+<label class="flex flex-col w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-10 bg-background-light dark:bg-background-dark">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 flex items-center justify-center pl-3">search</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-secondary dark:text-gray-200 focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-gray-400 dark:placeholder:text-gray-500 pl-2 text-sm" placeholder="Search manufacturer" value=""/>
+</div>
+</label>
+<div class="space-y-2 mt-3 text-sm">
+<label class="flex items-center gap-x-3"><input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/><span>Haas</span></label>
+<label class="flex items-center gap-x-3"><input checked class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/><span>DMG Mori</span></label>
+<label class="flex items-center gap-x-3"><input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/><span>Mazak</span></label>
+</div>
+</div>
+<!-- Price Range -->
+<div>
+<h3 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Price Range</h3>
+<div class="relative flex w-full flex-col items-start gap-3">
+<div class="flex h-[38px] w-full pt-1.5">
+<div class="flex h-1.5 w-full rounded-full bg-gray-200 dark:bg-gray-700 pl-[20%] pr-[40%]">
+<div class="relative">
+<div class="absolute -left-2.5 -top-2 flex flex-col items-center">
+<div class="size-5 rounded-full bg-primary border-2 border-white dark:border-gray-800 shadow cursor-pointer"></div>
+</div>
+</div>
+<div class="h-1.5 flex-1 rounded-full bg-primary"></div>
+<div class="relative">
+<div class="absolute -right-2.5 -top-2 flex flex-col items-center">
+<div class="size-5 rounded-full bg-primary border-2 border-white dark:border-gray-800 shadow cursor-pointer"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-between w-full text-xs text-gray-500 dark:text-gray-400">
+<span>$1,000</span>
+<span>$500,000+</span>
+</div>
+</div>
+</div>
+<!-- Verification Status -->
+<div>
+<h3 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">Verification Status</h3>
+<label class="flex items-center gap-x-3 text-sm">
+<input checked class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/>
+<span>Vishwakarma Verified</span>
+<span class="material-symbols-outlined text-accent text-base" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</label>
+</div>
+</div>
+<button class="flex w-full mt-8 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors">
+<span class="truncate">Apply Filters</span>
+</button>
+</div>
+</div>
+</aside>
+
+<!-- Search Results (Right Column) -->
+<div class="w-full lg:w-3/4 xl:w-4/5">
+<!-- Results Header -->
+<div class="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4">
+<p class="text-secondary dark:text-gray-300">Showing <span id="showing-count" class="font-bold text-gray-800 dark:text-white">1-6</span> of <span class="font-bold text-gray-800 dark:text-white">8</span> results</p>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<label class="text-sm text-secondary dark:text-gray-400" for="sort">Sort by:</label>
+<select class="form-select text-sm rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-background-dark/50 text-secondary dark:text-gray-200 focus:border-primary focus:ring-primary" id="sort">
+<option>Newest First</option>
+<option>Price (Low to High)</option>
+<option>Price (High to Low)</option>
+</select>
+</div>
+<div class="flex items-center gap-1 p-1 bg-gray-200 dark:bg-gray-700 rounded-lg">
+<button class="p-1.5 rounded-md bg-white dark:bg-gray-800 text-primary dark:text-white"><span class="material-symbols-outlined text-lg">grid_view</span></button>
+<button class="p-1.5 rounded-md text-gray-500 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-800/50"><span class="material-symbols-outlined text-lg">view_list</span></button>
+</div>
+</div>
+</div>
+
+<!-- Results Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Machine Card 1 -->
+<div id="machine-card-1" class="bg-white dark:bg-background-dark/50 rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="A modern CNC lathe machine in a clean workshop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9r4hSD1tspDT88l83oxEANWHuC00UWYK3NomFvEFyFZfcfKa7uXP2G9CP1nhf0_TmEdLiOBrO9GKT-OP-m1DtULpk-WLrb1KNLq-kdpEqHNXR02ePvmqs7kTUhPY1DI903rWT3rr5oIDl2_4mceVaPsCAPzUlfQ6QR-bFQEVIPg-4HMrVl95C-0syeLwboiJN80cMy1XuYVxdTR4nEh1lxelbRr6m48MBRacA8prwJVog0SWgArr_V1ll6pfWQdUWigcZVAx65w"/>
+<div class="absolute top-3 right-3 flex items-center gap-1.5 bg-accent/90 text-gray-800 text-xs font-bold py-1 px-2 rounded-full">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>VERIFIED</span>
+</div>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-gray-800 dark:text-white truncate">Haas VF-2 CNC Vertical Mill</h3>
+<p class="text-sm text-secondary dark:text-gray-400">Model: VF-2, Year: 2021</p>
+<p class="text-lg font-bold text-primary mt-2">$75,000</p>
+<div class="flex items-center gap-1 text-sm text-secondary dark:text-gray-400 mt-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Mumbai, Maharashtra</span>
+</div>
+<button class="w-full mt-4 text-center rounded-lg h-10 px-4 bg-primary/10 text-primary dark:bg-primary/20 dark:text-white text-sm font-bold hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<span class="truncate">View Details</span>
+</button>
+</div>
+</div>
+
+<!-- Machine Card 2 -->
+<div id="machine-card-2" class="bg-white dark:bg-background-dark/50 rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="A large industrial milling machine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIJqyNjyyMzVg--Ta6V4WoGbfjux1wIIXANtEy5XeXh6T-tuRoxGmYNu6nxqPVrJZy_4ugOkcxyXOpphRWKjXuFgfPH5iEXN2-Q5NPaA2cRYOKD2WnsBktx41iCSGUwQixOU4jRJS1uN74XE92o4wvq-zo6t5ifLZuFb1c8wL4AICLEofRxtBXy9TZMIAngRP7cH_w2PXnipb6V_SxpTOihJ3U9qBGxK3ZNXc7wT9CbLzSiwj4jiTYO0eFUBHPvJJYpKmYjzefhQ"/>
+<div class="absolute top-3 right-3 flex items-center gap-1.5 bg-accent/90 text-gray-800 text-xs font-bold py-1 px-2 rounded-full">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>VERIFIED</span>
+</div>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-gray-800 dark:text-white truncate">DMG Mori CMX 1100 V</h3>
+<p class="text-sm text-secondary dark:text-gray-400">Model: CMX 1100, Year: 2020</p>
+<p class="text-lg font-bold text-primary mt-2">$120,000</p>
+<div class="flex items-center gap-1 text-sm text-secondary dark:text-gray-400 mt-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Pune, Maharashtra</span>
+</div>
+<button class="w-full mt-4 text-center rounded-lg h-10 px-4 bg-primary/10 text-primary dark:bg-primary/20 dark:text-white text-sm font-bold hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<span class="truncate">View Details</span>
+</button>
+</div>
+</div>
+
+<!-- Machine Card 3 -->
+<div id="machine-card-3" class="bg-white dark:bg-background-dark/50 rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="Close-up of a CNC machine control panel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4BUJKFFNODw0ITht4dPxyrrlBWsyz3Xmj4IUcCMCSEbG7oSmZcj1udC7clog-K9sdhnhDBQsdVJTddBpq5D2Gb_4j59qafq5fziQgJhZBI27NUqY_mjXeFHwM59HMPfw06MYCVL1qbndGSjk24gf_BlAcKlcn0oCGgjuCaLLVmdAOg3EKXyZ7ikz4659NOgend0LjqJE69Fa1nQxADeiOKCO4hgENYmviVuufYQHr7CL8fhOx7HbJ75mXdAbvIL9QnBPtO8nv8w"/>
+<div class="absolute top-3 right-3 flex items-center gap-1.5 bg-accent/90 text-gray-800 text-xs font-bold py-1 px-2 rounded-full">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>VERIFIED</span>
+</div>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-gray-800 dark:text-white truncate">Mazak QUICK TURN 250MSY</h3>
+<p class="text-sm text-secondary dark:text-gray-400">Model: QT 250, Year: 2019</p>
+<p class="text-lg font-bold text-primary mt-2">$98,500</p>
+<div class="flex items-center gap-1 text-sm text-secondary dark:text-gray-400 mt-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Bengaluru, Karnataka</span>
+</div>
+<button class="w-full mt-4 text-center rounded-lg h-10 px-4 bg-primary/10 text-primary dark:bg-primary/20 dark:text-white text-sm font-bold hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<span class="truncate">View Details</span>
+</button>
+</div>
+</div>
+
+<!-- Machine Card 4 -->
+<div id="machine-card-4" class="bg-white dark:bg-background-dark/50 rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="An automated robotic arm working on a production line." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0a3B8_z3SrY7Lvfhwjepoi05MyB5W89uGzK9MBTwCzixGPAXvxULaHeFp1lkQou8ztCEPLdDfjyv5vYumCyQ9v26qStGBkFmTVuDdkmMAlNO_7rvZYlc0x5-JBqWAXCpSaN5ERkHvalOnHSGW3xxZBhJVQv1enPlpIdyfozi5otdd1QnItIDAppjun0cHep7xZNm5onwfGQh5xhDDwLs6sjLdCAzHId4pAY9EVZxmNVsWjP5Z_Mb0els42eUtATfWCoc2nOom-w"/>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-gray-800 dark:text-white truncate">Okuma GENOS L300-M</h3>
+<p class="text-sm text-secondary dark:text-gray-400">Model: L300-M, Year: 2022</p>
+<p class="text-lg font-bold text-primary mt-2">$82,000</p>
+<div class="flex items-center gap-1 text-sm text-secondary dark:text-gray-400 mt-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Chennai, Tamil Nadu</span>
+</div>
+<button class="w-full mt-4 text-center rounded-lg h-10 px-4 bg-primary/10 text-primary dark:bg-primary/20 dark:text-white text-sm font-bold hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<span class="truncate">View Details</span>
+</button>
+</div>
+</div>
+
+<!-- Machine Card 5 -->
+<div id="machine-card-5" class="bg-white dark:bg-background-dark/50 rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="A technician operating a complex industrial machine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLdpVGsiY1AJ1WqyAe5gGZfNf1ZNeiMmoQu9sVv3w38JPxRZUy6uyzjESO0Y0HcTFs7zdn7ycWAlQkblhcZQETNJMk-8d8Q46EfgqAUrIo6jJ8TJkrMQ6Pe8gVG0PXcazMn-flv40iek8rr9grsYa5aOrPyWlyXoNGkOcM3IIfdjVweIPPfdz4Qf3IdcSHOqKZqb4J9txnPVBUNMAiUQi_XrZCBXLaN9HLZh9mgm3UL9s1M8xGGQNF6gTl48jH_qAl_Rhc2ikyBw"/>
+<div class="absolute top-3 right-3 flex items-center gap-1.5 bg-accent/90 text-gray-800 text-xs font-bold py-1 px-2 rounded-full">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>VERIFIED</span>
+</div>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-gray-800 dark:text-white truncate">Fanuc Robodrill α-D21LiB5</h3>
+<p class="text-sm text-secondary dark:text-gray-400">Model: α-D21, Year: 2021</p>
+<p class="text-lg font-bold text-primary mt-2">$115,000</p>
+<div class="flex items-center gap-1 text-sm text-secondary dark:text-gray-400 mt-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Ahmedabad, Gujarat</span>
+</div>
+<button class="w-full mt-4 text-center rounded-lg h-10 px-4 bg-primary/10 text-primary dark:bg-primary/20 dark:text-white text-sm font-bold hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<span class="truncate">View Details</span>
+</button>
+</div>
+</div>
+
+<!-- Machine Card 6 -->
+<div id="machine-card-6" class="bg-white dark:bg-background-dark/50 rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="Wide shot of a factory floor with multiple machines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNnX49LJMIbB0vCM7pIyRcaR4FTfpLZWOClYmF2v8dTsvOubVIbTCNJxOXDwQ1O-gy2SAK1pPo-RIvj8Exp3Hkfv4XTh-xRD99JfI9IebJb_M4wRJBH7lrY0qSRALHO-u5HyXulUAv2Ip8XnjuavkSkoROOPT7-wE5XVYc30QcAJFd1OkS6TWZ7L97TMy2ypusxTuU4LdRgZOOIy6IAJ63woCZzzbHnXagPRa-Udr5-SVCb9N4xHTWJRrce1EDwncO6XHms03dJA"/>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-gray-800 dark:text-white truncate">Bridgeport Series I Milling Machine</h3>
+<p class="text-sm text-secondary dark:text-gray-400">Model: Series I, Year: 2018</p>
+<p class="text-lg font-bold text-primary mt-2">$25,000</p>
+<div class="flex items-center gap-1 text-sm text-secondary dark:text-gray-400 mt-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Noida, Uttar Pradesh</span>
+</div>
+<button class="w-full mt-4 text-center rounded-lg h-10 px-4 bg-primary/10 text-primary dark:bg-primary/20 dark:text-white text-sm font-bold hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<span class="truncate">View Details</span>
+</button>
+</div>
+</div>
+
+<!-- Machine Card 7: Kellenberger CNC Grinder -->
+<div id="machine-card-7" class="bg-white dark:bg-background-dark/50 rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="Kellenberger KEL-VARIA CNC cylindrical grinding machine with precision controls" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop"/>
+<div class="absolute top-3 right-3 flex items-center gap-1.5 bg-accent/90 text-gray-800 text-xs font-bold py-1 px-2 rounded-full">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>VERIFIED</span>
+</div>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-gray-800 dark:text-white truncate">Kellenberger CNC Grinder</h3>
+<p class="text-sm text-secondary dark:text-gray-400">Model: KEL-VARIA, Year: 2020</p>
+<p class="text-lg font-bold text-primary mt-2">$145,000</p>
+<div class="flex items-center gap-1 text-sm text-secondary dark:text-gray-400 mt-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Hyderabad, Telangana</span>
+</div>
+<button class="w-full mt-4 text-center rounded-lg h-10 px-4 bg-primary/10 text-primary dark:bg-primary/20 dark:text-white text-sm font-bold hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<span class="truncate">View Details</span>
+</button>
+</div>
+</div>
+
+<!-- Machine Card 8: Amada HFE-1003 Press Brake -->
+<div id="machine-card-8" class="bg-white dark:bg-background-dark/50 rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" alt="Amada HFE-1003 press brake machine for sheet metal bending operations" src="https://images.unsplash.com/photo-1542361345-89e58247f2d5?w=400&h=300&fit=crop"/>
+<div class="absolute top-3 right-3 flex items-center gap-1.5 bg-accent/90 text-gray-800 text-xs font-bold py-1 px-2 rounded-full">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>VERIFIED</span>
+</div>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-gray-800 dark:text-white truncate">Amada HFE-1003 Press Brake</h3>
+<p class="text-sm text-secondary dark:text-gray-400">Model: HFE-1003, Year: 2019</p>
+<p class="text-lg font-bold text-primary mt-2">$88,000</p>
+<div class="flex items-center gap-1 text-sm text-secondary dark:text-gray-400 mt-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span>Surat, Gujarat</span>
+</div>
+<button class="w-full mt-4 text-center rounded-lg h-10 px-4 bg-primary/10 text-primary dark:bg-primary/20 dark:text-white text-sm font-bold hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+<span class="truncate">View Details</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Pagination -->
+<div class="mt-8 flex justify-center">
+<nav class="flex items-center gap-1">
+<a id="page-btn-prev" class="inline-flex justify-center items-center size-9 rounded-lg text-secondary dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700" href="#"><span class="material-symbols-outlined text-lg">chevron_left</span></a>
+<a id="page-btn-1" class="inline-flex justify-center items-center size-9 rounded-lg text-white bg-primary" href="#">1</a>
+<a id="page-btn-2" class="inline-flex justify-center items-center size-9 rounded-lg text-secondary dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700" href="#">2</a>
+<a id="page-btn-3" class="inline-flex justify-center items-center size-9 rounded-lg text-secondary dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700" href="#">3</a>
+<span class="inline-flex justify-center items-center size-9 text-secondary dark:text-gray-400">...</span>
+<a class="inline-flex justify-center items-center size-9 rounded-lg text-secondary dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700" href="#">7</a>
+<a id="page-btn-next" class="inline-flex justify-center items-center size-9 rounded-lg text-secondary dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700" href="#"><span class="material-symbols-outlined text-lg">chevron_right</span></a>
+</nav>
+</div>
+</div>
+</div>
+</main>
+
+<script>
+  const itemsPerPage = 6;
+  const totalItems = 8;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  let currentPage = 1;
+
+  document.addEventListener('DOMContentLoaded', function() {
+    renderPage();
+    updatePagination();
+    setupPaginationEvents();
+  });
+
+  function renderPage() {
+    // Show/hide machine cards with smooth transition
+    for (let i = 1; i <= totalItems; i++) {
+      const card = document.getElementById(`machine-card-${i}`);
+      if (card) {
+        const shouldShow = (i > (currentPage - 1) * itemsPerPage) && (i <= currentPage * itemsPerPage);
+        card.style.display = shouldShow ? 'block' : 'none';
+      }
+    }
+    
+    // Update results text
+    updateResultsText();
+  }
+
+  function updateResultsText() {
+    const showingSpan = document.getElementById('showing-count');
+    if (showingSpan) {
+      const start = (currentPage - 1) * itemsPerPage + 1;
+      const end = Math.min(currentPage * itemsPerPage, totalItems);
+      showingSpan.textContent = `${start}-${end}`;
+    }
+  }
+
+  function updatePagination() {
+    // Update numbered buttons
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.getElementById(`page-btn-${i}`);
+      if (btn) {
+        if (i === currentPage) {
+          btn.classList.remove('text-secondary', 'dark:text-gray-300', 'hover:bg-gray-200', 'dark:hover:bg-gray-700');
+          btn.classList.add('text-white', 'bg-primary');
+        } else {
+          btn.classList.add('text-secondary', 'dark:text-gray-300', 'hover:bg-gray-200', 'dark:hover:bg-gray-700');
+          btn.classList.remove('text-white', 'bg-primary');
+        }
+      }
+    }
+
+    // Update prev/next buttons
+    const prevBtn = document.getElementById('page-btn-prev');
+    const nextBtn = document.getElementById('page-btn-next');
+    
+    // Disable prev on first page
+    if (prevBtn) {
+      if (currentPage === 1) {
+        prevBtn.classList.add('opacity-50', 'pointer-events-none');
+      } else {
+        prevBtn.classList.remove('opacity-50', 'pointer-events-none');
+      }
+    }
+    
+    // Disable next on last page
+    if (nextBtn) {
+      if (currentPage === totalPages) {
+        nextBtn.classList.add('opacity-50', 'pointer-events-none');
+      } else {
+        nextBtn.classList.remove('opacity-50', 'pointer-events-none');
+      }
+    }
+  }
+
+  function setupPaginationEvents() {
+    // Page number buttons
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.getElementById(`page-btn-${i}`);
+      if (btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          currentPage = i;
+          renderPage();
+          updatePagination();
+          scrollToTop();
+        });
+      }
+    }
+
+    // Previous button
+    const prevBtn = document.getElementById('page-btn-prev');
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (currentPage > 1) {
+          currentPage--;
+          renderPage();
+          updatePagination();
+          scrollToTop();
+        }
+      });
+    }
+
+    // Next button
+    const nextBtn = document.getElementById('page-btn-next');
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderPage();
+          updatePagination();
+          scrollToTop();
+        }
+      });
+    }
+  }
+
+  function scrollToTop() {
+    document.querySelector('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+</script>
+
+</body></html>

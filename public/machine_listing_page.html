@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vishwakarma Setu - All Machines</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#0D47A1",
+          "secondary": "#FF9800",
+          "background-light": "#F5F5F5",
+          "background-dark": "#101022",
+          "text-light": "#212121",
+          "text-dark": "#E0E0E0",
+          "text-muted-light": "#757575",
+          "text-muted-dark": "#9E9E9E",
+          "status-pass": "#4CAF50",
+          "status-fail": "#F44336",
+          "status-attention": "#FFC107",
+          "success": "#4CAF50",
+          "accent": "#FF9800"
+        },
+        fontFamily: {
+          "display": ["Inter", "sans-serif"]
+        },
+        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+  /* Custom styles for range slider */
+  input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #0D47A1;
+    cursor: pointer;
+    margin-top: -8px;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    background: #E0E0E0;
+    border-radius: 2px;
+  }
+  .dark input[type="range"]::-webkit-slider-runnable-track {
+    background: #424242;
+  }
+</style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-4 sm:px-6 lg:px-10 py-3 bg-white dark:bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-4 text-text-light dark:text-text-dark">
+<div class="size-8 text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_6_543)"><path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path><path clip-rule="evenodd" d="M7.24189 26.4066C7.31369 26.4411 7.64204 26.5637 8.52504 26.3738C9.59462 26.1438 11.0343 25.5311 12.7183 24.4963C14.7583 23.2426 17.0256 21.4503 19.238 19.238C21.4503 17.0256 23.2426 14.7583 24.4963 12.7183C25.5311 11.0343 26.1438 9.59463 26.3738 8.52504C26.5637 7.64204 26.4411 7.31369 26.4066 7.24189C26.345 7.21246 26.143 7.14535 25.6664 7.1918C24.9745 7.25925 23.9954 7.5498 22.7699 8.14278C20.3369 9.32007 17.3369 11.4915 14.4142 14.4142C11.4915 17.3369 9.32007 20.3369 8.14278 22.7699C7.5498 23.9954 7.25925 24.9745 7.1918 25.6664C7.14534 26.143 7.21246 26.345 7.24189 26.4066ZM29.9001 10.7285C29.4519 12.0322 28.7617 13.4172 27.9042 14.8126C26.465 17.1544 24.4686 19.6641 22.0664 22.0664C19.6641 24.4686 17.1544 26.465 14.8126 27.9042C13.4172 28.7617 12.0322 29.4519 10.7285 29.9001L21.5754 40.747C21.6001 40.7606 21.8995 40.931 22.8729 40.7217C23.9424 40.4916 25.3821 39.879 27.0661 38.8441C29.1062 37.5904 31.3734 35.7982 33.5858 33.5858C35.7982 31.3734 37.5904 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor" fill-rule="evenodd"></path></g><defs><clipPath id="clip0_6_543"><rect fill="white" height="48" width="48"/></clipPath></defs></svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Vishwakarma Setu</h2>
+</div>
+<div class="hidden lg:flex flex-1 justify-end items-center gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-sm font-medium leading-normal text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-white" href="#">All Machines</a>
+<a class="text-sm font-medium leading-normal text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-white" href="#">Sell Machine</a>
+<a class="text-sm font-medium leading-normal text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-white" href="#">About Us</a>
+<a class="text-sm font-medium leading-normal text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-white" href="#">Help Center</a>
+</nav>
+<div class="flex gap-2">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Log In</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 dark:bg-gray-700 text-text-light dark:text-text-dark text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Sign Up</span>
+</button>
+</div>
+</div>
+<button class="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+
+<main class="layout-container flex h-full grow flex-col">
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- Page Header -->
+<div class="mb-8">
+<h1 class="text-4xl font-bold text-text-light dark:text-white mb-2">Available Machines</h1>
+<p class="text-text-muted-light dark:text-text-muted-dark">Browse our verified inventory of industrial equipment</p>
+</div>
+
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Filter Sidebar -->
+<div class="w-full lg:w-80 flex-shrink-0">
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 sticky top-24">
+    <div class="flex items-center justify-between mb-6">
+        <h3 class="text-lg font-bold text-text-light dark:text-white">Filters</h3>
+        <button onclick="clearFilters()" class="text-sm text-primary hover:underline">Clear All</button>
+    </div>
+
+    <!-- Price Range Filter -->
+    <div class="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+        <h4 class="font-semibold mb-4 text-text-light dark:text-white">Price Range</h4>
+        <div class="space-y-4">
+            <div class="flex items-center gap-3">
+                <input type="number" id="minPrice" placeholder="Min" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-text-light dark:text-text-dark focus:ring-2 focus:ring-primary focus:border-transparent" />
+                <span class="text-text-muted-light dark:text-text-muted-dark">-</span>
+                <input type="number" id="maxPrice" placeholder="Max" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-text-light dark:text-text-dark focus:ring-2 focus:ring-primary focus:border-transparent" />
+            </div>
+            <div>
+                <input type="range" id="priceSlider" min="0" max="10000000" step="100000" class="w-full" />
+                <div class="flex justify-between text-xs text-text-muted-light dark:text-text-muted-dark mt-1">
+                    <span id="minPriceLabel">₹0</span>
+                    <span id="maxPriceLabel">₹1,00,00,000+</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Verification Status Filter -->
+    <div class="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+        <h4 class="font-semibold mb-4 text-text-light dark:text-white">Verification Status</h4>
+        <div class="space-y-2">
+            <label class="flex items-center cursor-pointer">
+                <input type="radio" name="verification" value="all" checked class="text-primary focus:ring-primary" />
+                <span class="ml-2 text-text-light dark:text-text-dark">All Machines</span>
+            </label>
+            <label class="flex items-center cursor-pointer">
+                <input type="radio" name="verification" value="verified" class="text-primary focus:ring-primary" />
+                <span class="ml-2 text-text-light dark:text-text-dark">Verified Only</span>
+            </label>
+            <label class="flex items-center cursor-pointer">
+                <input type="radio" name="verification" value="pending" class="text-primary focus:ring-primary" />
+                <span class="ml-2 text-text-light dark:text-text-dark">Pending Only</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+        <h4 class="font-semibold mb-4 text-text-light dark:text-white">Category</h4>
+        <div class="space-y-2">
+            <label class="flex items-center cursor-pointer">
+                <input type="checkbox" value="cnc" class="category-filter text-primary focus:ring-primary rounded" />
+                <span class="ml-2 text-text-light dark:text-text-dark">CNC Machines</span>
+            </label>
+            <label class="flex items-center cursor-pointer">
+                <input type="checkbox" value="laser" class="category-filter text-primary focus:ring-primary rounded" />
+                <span class="ml-2 text-text-light dark:text-text-dark">Laser Cutters</span>
+            </label>
+            <label class="flex items-center cursor-pointer">
+                <input type="checkbox" value="printer" class="category-filter text-primary focus:ring-primary rounded" />
+                <span class="ml-2 text-text-light dark:text-text-dark">3D Printers</span>
+            </label>
+            <label class="flex items-center cursor-pointer">
+                <input type="checkbox" value="molding" class="category-filter text-primary focus:ring-primary rounded" />
+                <span class="ml-2 text-text-light dark:text-text-dark">Molding</span>
+            </label>
+            <label class="flex items-center cursor-pointer">
+                <input type="checkbox" value="router" class="category-filter text-primary focus:ring-primary rounded" />
+                <span class="ml-2 text-text-light dark:text-text-dark">Routers</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Location Filter -->
+    <div class="mb-6">
+        <h4 class="font-semibold mb-4 text-text-light dark:text-white">Location</h4>
+        <select id="locationFilter" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-text-light dark:text-text-dark focus:ring-2 focus:ring-primary focus:border-transparent">
+            <option value="">All Locations</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="delhi">Delhi</option>
+            <option value="bangalore">Bangalore</option>
+            <option value="chennai">Chennai</option>
+            <option value="pune">Pune</option>
+        </select>
+    </div>
+
+    <button onclick="applyFilters()" class="w-full py-2 bg-primary text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+        Apply Filters
+    </button>
+</div>
+</div>
+
+<div class="w-full">
+<!-- Results Count -->
+<div class="mb-6 flex items-center justify-between">
+    <p class="text-text-muted-light dark:text-text-muted-dark" id="resultsCount">Showing 6 of 6 machines</p>
+    <select id="sortBy" class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-text-light dark:text-text-dark focus:ring-2 focus:ring-primary focus:border-transparent">
+        <option value="newest">Newest First</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="name">Name: A to Z</option>
+    </select>
+</div>
+
+<!-- Machine Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8" id="machineGrid">
+    <!-- Machine Card 1 -->
+    <a href="machine-details-tx200.html" class="block group">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-primary">
+    <div class="aspect-[4/3] bg-center bg-no-repeat bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCmoiArECgwHB9nwtIXctxHViAW43QUmWgVxVjDxSy79lapfbhQRt1_CjkPe59PZqP1LXxneOtJA1xnFYYHlPrAtTZEhvjtir9948MYKxH_Q6tBNqpEjTy1JUtQD2TpYhN_Td-ytKEZDbjlrMcx5_OVHxHe0KEFW0WYvMeM6quMyn9j6Qi0tMoxFEGICo4hDXFhAv9nPxG_0xPyrsjEGGKtTP0aBSOjMVbaueri_O73xXFJDXTWDKqBH7ehKI96datZAcb7cfJVUw')"></div>
+    <div class="p-6">
+    <h3 class="text-xl font-bold mb-2 text-text-light dark:text-white group-hover:text-primary transition-colors">CNC Lathe Machine TX-200</h3>
+    <p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-4">High-precision CNC lathe with 8-station turret and FANUC control system</p>
+    <div class="flex items-center justify-between">
+        <span class="text-2xl font-bold text-primary">₹26,17,500</span>
+        <span class="text-sm text-status-pass font-medium">Verified</span>
+    </div>
+    </div>
+    </div>
+    </a>
+
+    <!-- Machine Card 2 -->
+    <a href="machine-details-mx300.html" class="block group">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-primary">
+    <div class="aspect-[4/3] bg-center bg-no-repeat bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB6jHq_U2m9bzIXw-nAg0yDyneKZ5VYgKy9nB_2FNmhLeUWTtowAZJPNwBM362FDN3M3L4vHXSos4_KOji6KY1oeNEn-1kKMplgDyIrRlDNV7F1NrEk2CpnmV4wuc5gPcEFLojSLBjsPo0eipuNYC9qv3qUtVfKYH9nWJty2gn64Zm5dy46Tj3hDZuwtFL_WBkpVM2BtLlg2PMEnMqyhU4Y_kgk-VVv27i2xXrcZMldZa1Fx8Z2EKJ2dfrsWbOCuyluJL_uOUGq5g')"></div>
+    <div class="p-6">
+    <h3 class="text-xl font-bold mb-2 text-text-light dark:text-white group-hover:text-primary transition-colors">CNC Milling Machine MX-300</h3>
+    <p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-4">3-axis vertical machining center with 24-tool automatic changer</p>
+    <div class="flex items-center justify-between">
+        <span class="text-2xl font-bold text-primary">₹32,50,000</span>
+        <span class="text-sm text-status-pass font-medium">Verified</span>
+    </div>
+    </div>
+    </div>
+    </a>
+
+    <!-- Machine Card 3 -->
+    <a href="machine-details-lc1000.html" class="block group">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-primary">
+    <div class="aspect-[4/3] bg-center bg-no-repeat bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGNCjwOcRmRF192_tIneGBbDbIA01jeVv1KNg4LW5bi21ZVXQuIrxQfJRWecMv7vKni2VnG6DK7jPFIuh9T3BNPwAWmQ5KFYcPikOavOZ3-8JMvOykrasebSzU7-LvEdvpOow0PMty9FGp39pXqSZ_mSgjVvTjyBi4J8lBDIlvxp9ZbG0ofibraRtx8-3Ok6SrvgZaZPdW2ABcVjjPL49H1q_Ip5TffWwB2Qnv64GvFAhIV_fj3YRqhIXRnBDH5KoV5IIWLgnhlQ')"></div>
+    <div class="p-6">
+    <h3 class="text-xl font-bold mb-2 text-text-light dark:text-white group-hover:text-primary transition-colors">Laser Cutting Machine LC-1000</h3>
+    <p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-4">Fiber laser cutter with 1kW power and 1500x3000mm cutting bed</p>
+    <div class="flex items-center justify-between">
+        <span class="text-2xl font-bold text-primary">₹45,00,000</span>
+        <span class="text-sm text-status-pass font-medium">Verified</span>
+    </div>
+    </div>
+    </div>
+    </a>
+
+    <!-- Machine Card 4 -->
+    <a href="#" class="block group">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-primary">
+    <div class="aspect-[4/3] bg-center bg-no-repeat bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuApvdGD3VPhf5ABAMxIlsEtAKudIu5jXrsdlGRuyfDW9vfFuxnvBxJLJKqDHpjzgqjkk0MvIYMOs5IpIuPiWy5GLaRmdb2hvOBpU6L4iLZFobqEqsJgPMpZICe_7tLr90whlodBSTp3GjbrLOQohI_31h15DFw-AU70qRFZ7Fzqbaz5FVCkbU5CWfm8TyM9TiIClP8YfjCqPwu9K4JJcSFz8FTN7IgLbGwuMtMWy24JBO7qugVp1lRAMMQUcuJbpbRMSMlaJGF4YQ')"></div>
+    <div class="p-6">
+    <h3 class="text-xl font-bold mb-2 text-text-light dark:text-white group-hover:text-primary transition-colors">3D Printer ProMax-500</h3>
+    <p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-4">Industrial SLA 3D printer with 500x500x500mm build volume</p>
+    <div class="flex items-center justify-between">
+        <span class="text-2xl font-bold text-primary">₹18,75,000</span>
+        <span class="text-sm text-status-attention font-medium">Pending</span>
+    </div>
+    </div>
+    </div>
+    </a>
+
+    <!-- Machine Card 5 -->
+    <a href="#" class="block group">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-primary">
+    <div class="aspect-[4/3] bg-center bg-no-repeat bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDya8b5UzDhqTk_A4tGidroj9a2XXZjyinbN6GRcDMhnk_sBVD3yKdxP6zQvw8FzB4RQ5sHk1HEoxvj7ZXOD0JI0dr_jm3Hc0obvBp0EEtRQDfdPENeuBRfrAtnPpLIKh0aeQUgdD9-b-i35GDqTpYlvKJ1LPZIudwoQajMQQ4IIi8ztz2tJlpcID_15EYop2HQtuX4JrH9jtAYYZeDDBrbG7H65d6RnYYtjr1rCOZ1GDz9NL-58ZHI28gg9cI7WfXQ7RIbC5KnbA')"></div>
+    <div class="p-6">
+    <h3 class="text-xl font-bold mb-2 text-text-light dark:text-white group-hover:text-primary transition-colors">Injection Molding IM-800</h3>
+    <p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-4">800-ton horizontal injection molding machine with robotic arm</p>
+    <div class="flex items-center justify-between">
+        <span class="text-2xl font-bold text-primary">₹65,00,000</span>
+        <span class="text-sm text-status-pass font-medium">Verified</span>
+    </div>
+    </div>
+    </div>
+    </a>
+
+    <!-- Machine Card 6 -->
+    <a href="#" class="block group">
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-primary">
+    <div class="aspect-[4/3] bg-center bg-no-repeat bg-cover" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCw3exTwdCkQvVYMle3pRKxBNvjsZTvKgcJRF8wYbvU7N1IjOcZg5qtKfkmRLZDEV3q796NGJNScxgVInT_BEJb0EI8pJergXNoB6_PgSuqpRLc0IaNsXzjbTcuUKoFJJqaCfGsqPJSCiTV1KpXJGpF39U38eoZdk3a8kfeiOJIYLi9jDtsjux_IbSYJqI8TwCPfuocQUPLx-0kDbgtAWRybYiyWUpopfwrCkkcKhTJUJuEC06w1329cxI6Zknn0ixkXImcjoWnsA')"></div>
+    <div class="p-6">
+    <h3 class="text-xl font-bold mb-2 text-text-light dark:text-white group-hover:text-primary transition-colors">CNC Router R-1500</h3>
+    <p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-4">Large format CNC router with 1500x3000mm work area and ATC</p>
+    <div class="flex items-center justify-between">
+        <span class="text-2xl font-bold text-primary">₹28,90,000</span>
+        <span class="text-sm text-status-pass font-medium">Verified</span>
+    </div>
+    </div>
+    </div>
+    </a>
+</div>
+
+<!-- Pagination Controls -->
+<div class="flex items-center justify-center gap-2 mt-12">
+    <button id="prevPage" onclick="changePage(-1)" disabled class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-text-light dark:text-text-dark hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+        <span class="material-symbols-outlined align-middle mr-1">chevron_left</span>Previous
+    </button>
+    <div id="pageNumbers" class="flex gap-1">
+        <button onclick="goToPage(1)" class="px-4 py-2 bg-primary text-white rounded-lg font-semibold">1</button>
+    </div>
+    <button id="nextPage" onclick="changePage(1)" disabled class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-text-light dark:text-text-dark hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+        Next<span class="material-symbols-outlined align-middle ml-1">chevron_right</span>
+    </button>
+</div>
+</div>
+</div>
+
+</div>
+</main>
+
+<footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16">
+<div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center text-text-muted-light dark:text-text-muted-dark">
+<p>© 2024 Vishwakarma Setu. All rights reserved.</p>
+<div class="flex justify-center gap-4 mt-4">
+<a class="hover:text-primary" href="#">Terms of Service</a>
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+
+</div>
+<script id="machines-data" type="application/json">
+{
+    "machines": [
+        {
+            "id": 1,
+            "title": "CNC Lathe Machine TX-200",
+            "description": "High-precision CNC lathe with 8-station turret and FANUC control system",
+            "price": 2617500,
+            "status": "verified",
+            "category": "cnc",
+            "location": "pune",
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCmoiArECgwHB9nwtIXctxHViAW43QUmWgVxVjDxSy79lapfbhQRt1_CjkPe59PZqP1LXxneOtJA1xnFYYHlPrAtTZEhvjtir9948MYKxH_Q6tBNqpEjTy1JUtQD2TpYhN_Td-ytKEZDbjlrMcx5_OVHxHe0KEFW0WYvMeM6quMyn9j6Qi0tMoxFEGICo4hDXFhAv9nPxG_0xPyrsjEGGKtTP0aBSOjMVbaueri_O73xXFJDXTWDKqBH7ehKI96datZAcb7cfJVUw",
+            "dateAdded": "2024-11-27T10:00:00Z"
+        },
+        {
+            "id": 2,
+            "title": "CNC Milling Machine MX-300",
+            "description": "3-axis vertical machining center with 24-tool automatic changer",
+            "price": 3250000,
+            "status": "verified",
+            "category": "cnc",
+            "location": "bangalore",
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuB6jHq_U2m9bzIXw-nAg0yDyneKZ5VYgKy9nB_2FNmhLeUWTtowAZJPNwBM362FDN3M3L4vHXSos4_KOji6KY1oeNEn-1kKMplgDyIrRlDNV7F1NrEk2CpnmV4wuc5gPcEFLojSLBjsPo0eipuNYC9qv3qUtVfKYH9nWJty2gn64Zm5dy46Tj3hDZuwtFL_WBkpVM2BtLlg2PMEnMqyhU4Y_kgk-VVv27i2xXrcZMldZa1Fx8Z2EKJ2dfrsWbOCuyluJL_uOUGq5g",
+            "dateAdded": "2024-11-25T14:30:00Z"
+        },
+        {
+            "id": 3,
+            "title": "Laser Cutting Machine LC-1000",
+            "description": "Fiber laser cutter with 1kW power and 1500x3000mm cutting bed",
+            "price": 4500000,
+            "status": "verified",
+            "category": "laser",
+            "location": "mumbai",
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDGNCjwOcRmRF192_tIneGBbDbIA01jeVv1KNg4LW5bi21ZVXQuIrxQfJRWecMv7vKni2VnG6DK7jPFIuh9T3BNPwAWmQ5KFYcPikOavOZ3-8JMvOykrasebSzU7-LvEdvpOow0PMty9FGp39pXqSZ_mSgjVvTjyBi4J8lBDIlvxp9ZbG0ofibraRtx8-3Ok6SrvgZaZPdW2ABcVjjPL49H1q_Ip5TffWwB2Qnv64GvFAhIV_fj3YRqhIXRnBDH5KoV5IIWLgnhlQ",
+            "dateAdded": "2024-11-20T09:15:00Z"
+        },
+        {
+            "id": 4,
+            "title": "3D Printer ProMax-500",
+            "description": "Industrial SLA 3D printer with 500x500x500mm build volume",
+            "price": 1875000,
+            "status": "pending",
+            "category": "printer",
+            "location": "delhi",
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuApvdGD3VPhf5ABAMxIlsEtAKudIu5jXrsdlGRuyfDW9vfFuxnvBxJLJKqDHpjzgqjkk0MvIYMOs5IpIuPiWy5GLaRmdb2hvOBpU6L4iLZFobqEqsJgPMpZICe_7tLr90whlodBSTp3GjbrLOQohI_31h15DFw-AU70qRFZ7Fzqbaz5FVCkbU5CWfm8TyM9TiIClP8YfjCqPwu9K4JJcSFz8FTN7IgLbGwuMtMWy24JBO7qugVp1lRAMMQUcuJbpbRMSMlaJGF4YQ",
+            "dateAdded": "2024-11-23T16:45:00Z"
+        },
+        {
+            "id": 5,
+            "title": "Injection Molding IM-800",
+            "description": "800-ton horizontal injection molding machine with robotic arm",
+            "price": 6500000,
+            "status": "verified",
+            "category": "molding",
+            "location": "chennai",
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDya8b5UzDhqTk_A4tGidroj9a2XXZjyinbN6GRcDMhnk_sBVD3yKdxP6zQvw8FzB4RQ5sHk1HEoxvj7ZXOD0JI0dr_jm3Hc0obvBp0EEtRQDfdPENeuBRfrAtnPpLIKh0aeQUgdD9-b-i35GDqTpYlvKJ1LPZIudwoQajMQQ4IIi8ztz2tJlpcID_15EYop2HQtuX4JrH9jtAYYZeDDBrbG7H65d6RnYYtjr1rCOZ1GDz9NL-58ZHI28gg9cI7WfXQ7RIbC5KnbA",
+            "dateAdded": "2024-11-22T11:20:00Z"
+        },
+        {
+            "id": 6,
+            "title": "CNC Router R-1500",
+            "description": "Large format CNC router with 1500x3000mm work area and ATC",
+            "price": 2890000,
+            "status": "verified",
+            "category": "router",
+            "location": "pune",
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCw3exTwdCkQvVYMle3pRKxBNvjsZTvKgcJRF8wYbvU7N1IjOcZg5qtKfkmRLZDEV3q796NGJNScxgVInT_BEJb0EI8pJergXNoB6_PgSuqpRLc0IaNsXzjbTcuUKoFJJqaCfGsqPJSCiTV1KpXJGpF39U38eoZdk3a8kfeiOJIYLi9jDtsjux_IbSYJqI8TwCPfuocQUPLx-0kDbgtAWRybYiyWUpopfwrCkkcKhTJUJuEC06w1329cxI6Zknn0ixkXImcjoWnsA",
+            "dateAdded": "2024-11-21T13:40:00Z"
+        }
+    ]
+}
+</script>
+
+<script>
+    // Initialize variables
+    let allMachines = [];
+    let filteredMachines = [];
+    let currentPage = 1;
+    const machinesPerPage = 3;
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', function() {
+        loadMachines();
+        setupEventListeners();
+        updatePriceLabels();
+    });
+
+    function loadMachines() {
+        const dataElement = document.getElementById('machines-data');
+        allMachines = JSON.parse(dataElement.textContent).machines;
+        filteredMachines = [...allMachines];
+        renderMachines();
+        updatePagination();
+    }
+
+    function setupEventListeners() {
+        // Price range inputs
+        document.getElementById('minPrice').addEventListener('input', updatePriceSlider);
+        document.getElementById('maxPrice').addEventListener('input', updatePriceSlider);
+        document.getElementById('priceSlider').addEventListener('input', updatePriceFromSlider);
+        
+        // Sort dropdown
+        document.getElementById('sortBy').addEventListener('change', applyFilters);
+        
+        // Filter inputs
+        document.querySelectorAll('input[name="verification"]').forEach(radio => {
+            radio.addEventListener('change', applyFilters);
+        });
+        
+        document.querySelectorAll('.category-filter').forEach(checkbox => {
+            checkbox.addEventListener('change', applyFilters);
+        });
+        
+        document.getElementById('locationFilter').addEventListener('change', applyFilters);
+    }
+
+    function updatePriceSlider() {
+        const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+        const maxPrice = parseInt(document.getElementById('maxPrice').value) || 10000000;
+        
+        document.getElementById('priceSlider').value = maxPrice;
+        updatePriceLabels();
+    }
+
+    function updatePriceFromSlider() {
+        const sliderValue = document.getElementById('priceSlider').value;
+        document.getElementById('maxPrice').value = sliderValue;
+        updatePriceLabels();
+    }
+
+    function updatePriceLabels() {
+        const sliderValue = document.getElementById('priceSlider').value;
+        document.getElementById('minPriceLabel').textContent = '₹0';
+        document.getElementById('maxPriceLabel').textContent = sliderValue >= 10000000 ? '₹1,00,00,000+' : `₹${parseInt(sliderValue).toLocaleString('en-IN')}`;
+    }
+
+    function applyFilters() {
+        const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+        const maxPrice = parseInt(document.getElementById('maxPrice').value) || Number.MAX_VALUE;
+        const verificationStatus = document.querySelector('input[name="verification"]:checked').value;
+        const location = document.getElementById('locationFilter').value;
+        const selectedCategories = Array.from(document.querySelectorAll('.category-filter:checked')).map(cb => cb.value);
+        const sortBy = document.getElementById('sortBy').value;
+
+        // Filter machines
+        filteredMachines = allMachines.filter(machine => {
+            // Price filter
+            if (machine.price < minPrice || machine.price > maxPrice) return false;
+            
+            // Verification status filter
+            if (verificationStatus !== 'all' && machine.status !== verificationStatus) return false;
+            
+            // Location filter
+            if (location && machine.location !== location) return false;
+            
+            // Category filter
+            if (selectedCategories.length > 0 && !selectedCategories.includes(machine.category)) return false;
+            
+            return true;
+        });
+
+        // Sort machines
+        switch(sortBy) {
+            case 'price-low':
+                filteredMachines.sort((a, b) => a.price - b.price);
+                break;
+            case 'price-high':
+                filteredMachines.sort((a, b) => b.price - a.price);
+                break;
+            case 'name':
+                filteredMachines.sort((a, b) => a.title.localeCompare(b.title));
+                break;
+            case 'newest':
+                filteredMachines.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+                break;
+        }
+
+        currentPage = 1;
+        renderMachines();
+        updatePagination();
+        updateResultsCount();
+    }
+
+    function clearFilters() {
+        // Clear all filter inputs
+        document.getElementById('minPrice').value = '';
+        document.getElementById('maxPrice').value = '';
+        document.getElementById('priceSlider').value = 10000000;
+        document.querySelector('input[value="all"]').checked = true;
+        document.getElementById('locationFilter').value = '';
+        document.querySelectorAll('.category-filter').forEach(cb => cb.checked = false);
+        document.getElementById('sortBy').value = 'newest';
+        
+        // Reset to show all machines
+        filteredMachines = [...allMachines];
+        currentPage = 1;
+        renderMachines();
+        updatePagination();
+        updateResultsCount();
+        updatePriceLabels();
+    }
+
+    function renderMachines() {
+        const grid = document.getElementById('machineGrid');
+        const startIndex = (currentPage - 1) * machinesPerPage;
+        const endIndex = startIndex + machinesPerPage;
+        const machinesToShow = filteredMachines.slice(startIndex, endIndex);
+
+        // Clear existing machines
+        grid.innerHTML = '';
+
+        // Add filtered machines
+        machinesToShow.forEach(machine => {
+            const statusClass = machine.status === 'verified' ? 'text-status-pass' : 'text-status-attention';
+            const statusText = machine.status === 'verified' ? 'Verified' : 'Pending';
+            const priceText = `₹${machine.price.toLocaleString('en-IN')}`;
+            
+            const machineCard = `
+                <a href="#" class="block group">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 group-hover:border-primary">
+                        <div class="aspect-[4/3] bg-center bg-no-repeat bg-cover" style="background-image: url('${machine.image}')"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-text-light dark:text-white group-hover:text-primary transition-colors">${machine.title}</h3>
+                            <p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-4">${machine.description}</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-primary">${priceText}</span>
+                                <span class="text-sm ${statusClass} font-medium">${statusText}</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            `;
+            grid.innerHTML += machineCard;
+        });
+    }
+
+    function updatePagination() {
+        const totalPages = Math.ceil(filteredMachines.length / machinesPerPage);
+        const pageNumbersContainer = document.getElementById('pageNumbers');
+        const prevButton = document.getElementById('prevPage');
+        const nextButton = document.getElementById('nextPage');
+
+        // Clear existing page numbers
+        pageNumbersContainer.innerHTML = '';
+
+        // Add page numbers
+        for (let i = 1; i <= totalPages; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.textContent = i;
+            pageButton.onclick = () => goToPage(i);
+            
+            if (i === currentPage) {
+                pageButton.className = 'px-4 py-2 bg-primary text-white rounded-lg font-semibold';
+            } else {
+                pageButton.className = 'px-4 py-2 bg-white dark:bg-gray-800 text-text-light dark:text-text-dark border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors';
+            }
+            
+            pageNumbersContainer.appendChild(pageButton);
+        }
+
+        // Update navigation buttons
+        prevButton.disabled = currentPage === 1;
+        nextButton.disabled = currentPage === totalPages || totalPages === 0;
+    }
+
+    function changePage(direction) {
+        const totalPages = Math.ceil(filteredMachines.length / machinesPerPage);
+        const newPage = currentPage + direction;
+        
+        if (newPage >= 1 && newPage <= totalPages) {
+            goToPage(newPage);
+        }
+    }
+
+    function goToPage(page) {
+        currentPage = page;
+        renderMachines();
+        updatePagination();
+        
+        // Scroll to top of machines
+        document.getElementById('machineGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function updateResultsCount() {
+        const countElement = document.getElementById('resultsCount');
+        const totalMachines = filteredMachines.length;
+        const startIndex = Math.min((currentPage - 1) * machinesPerPage + 1, totalMachines);
+        const endIndex = Math.min(currentPage * machinesPerPage, totalMachines);
+        
+        if (totalMachines === 0) {
+            countElement.textContent = 'No machines found';
+        } else if (totalMachines <= machinesPerPage) {
+            countElement.textContent = `Showing ${totalMachines} of ${totalMachines} machines`;
+        } else {
+            countElement.textContent = `Showing ${startIndex}-${endIndex} of ${totalMachines} machines`;
+        }
+    }
+
+    function toggleMobileMenu() {
+        // Mobile menu toggle functionality
+        alert('Mobile menu toggle - Add your mobile menu implementation here');
+    }
+</script>
+</body></html>

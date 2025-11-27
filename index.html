@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vishwakarma-setu</title>
+
+    <!-- BEGIN: Added for Machine Listing & Search pages -->
+    <!-- Tailwind CDN with plugins used by your static pages -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Fonts preconnects & fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+    <!-- Tailwind config used by your HTML pages -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0D47A1",
+              "secondary": "#FF9800",
+              "background-light": "#F5F5F5",
+              "background-dark": "#101022",
+              "text-light": "#212121",
+              "text-dark": "#E0E0E0",
+              "text-muted-light": "#757575",
+              "text-muted-dark": "#9E9E9E",
+              "status-pass": "#4CAF50",
+              "status-fail": "#F44336",
+              "status-attention": "#FFC107",
+              "success": "#4CAF50",
+              "accent": "#FF9800"
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+      /* Custom styles for range slider */
+      input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: #0D47A1;
+        cursor: pointer;
+        margin-top: -8px;
+      }
+      input[type="range"]::-webkit-slider-runnable-track {
+        height: 4px;
+        background: #E0E0E0;
+        border-radius: 2px;
+      }
+      .dark input[type="range"]::-webkit-slider-runnable-track {
+        background: #424242;
+      }
+    </style>
+    <!-- END: Added for Machine Listing & Search pages -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
