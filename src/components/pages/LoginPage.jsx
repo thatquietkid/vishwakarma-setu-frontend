@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 // --- Import our new useAuth hook ---
 import { useAuth } from '../../context/AuthContext';
+// --- Import reusable layout components ---
+import Navbar from '../layout/Navbar';
+import Footer from '../layout/Footer';
 
 function LoginPage() {
   const [step, setStep] = useState('password');
-  // --- FIX: Replace placeholder comment with actual state definitions ---
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [otp, setOtp] = useState('');
@@ -27,9 +29,9 @@ function LoginPage() {
     setLoading(true);
 
     if (step === 'password') {
-      // --- Step 1: Submit Email and Password ---
+      // --- Step 1: Submit Email and Password (Go backend: /login) ---
       try {
-        const response = await fetch('http://localhost:1325/login', {
+        const response = await fetch('http://localhost:1325/auth/login/step1', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password }),
@@ -51,9 +53,9 @@ function LoginPage() {
         setLoading(false);
       }
     } else {
-      // --- Step 2: Submit Email and OTP ---
+      // --- Step 2: Submit Email and OTP (Go backend: /verify-login) ---
       try {
-        const response = await fetch('http://localhost:1325/verify-login', {
+        const response = await fetch('http://localhost:1325/auth/login/step2', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, otp }),
@@ -65,11 +67,9 @@ function LoginPage() {
           setError(data.error || 'Invalid OTP. Please try again.');
           setLoading(false);
         } else {
-          // --- THIS IS THE UPDATE ---
           setLoading(false);
           
           // 1. Call the login function from our context
-          // This saves the token/user to state and localStorage
           login(data.token, data.user);
           
           // 2. Redirect to the homepage
@@ -82,17 +82,31 @@ function LoginPage() {
     }
   };
 
+  // Helper to handle OTP input (digits only, max 6)
+  const handleOtpChange = (e) => {
+    const value = e.target.value;
+    // Only allow numbers and maximum 6 digits
+    if (/^\d{0,6}$/.test(value)) {
+      setOtp(value);
+    }
+  };
+
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+      
+      {/* 1. Navbar is now outside the main content wrapper */}
+      <Navbar />
+
       <div className="flex h-full min-h-screen grow flex-col">
         <div className="flex flex-1">
           <div className="flex w-full flex-wrap">
+            
             {/* Left Side Image Panel */}
             <div className="relative hidden w-1/2 flex-col items-center justify-center bg-gray-900 lg:flex">
               <img
                 alt="Modern industrial machinery in a clean factory setting"
                 className="absolute inset-0 h-full w-full object-cover opacity-30"
-                src="https://images.unsplash.com/photo-1567942712621-e40e33800933?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMzczODV8MHwxfHNlYXJjaHwxfHxpbmR1c3RyaWFsJTIwbWFjaGluZXJ5fGVufDB8fHx8MTcwMDcxNjc4MHww&ixid=rb-4.0.3&q=80&w=1080"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlfaRKVBp66fDGIMS99TV1g5slwRxG4vUAV_N9nUaG--IXZcyG16kI1mUw8xgFdsXLgQNMXiFLzXzjwyYoX4vF3t6ioeRbdagJfrVO6NIuc2s8LK_r0lGuZ9PZOPRc2HfsY0fdQvQ55FFf9L_7uWh40JWUPeSkvPpr72dCuNcfyySFats158pBzDcvp9rLpK5_tgYTSoPJKzvUespnHTsCj6OvTlPahFG8jymEmXtM4MloVbNhOdbpbeAVXMbCLW5_aTtS072zZA"
               />
               <div className="relative z-10 p-12 text-white">
                 <div className="mb-6 flex items-center gap-4">
@@ -112,7 +126,7 @@ function LoginPage() {
             {/* Right Side Login Form */}
             <div className="flex w-full flex-1 flex-col items-center justify-center bg-background-light px-4 py-12 dark:bg-background-dark lg:w-1/2">
               <div className="flex w-full max-w-md flex-col items-center">
-                {/* Mobile Header */}
+                {/* Mobile Header (Removed duplicate site logo/header logic here since Navbar handles it) */}
                 <div className="mb-8 w-full text-center lg:hidden">
                   <div className="mb-4 flex items-center justify-center gap-3">
                     <span className="material-symbols-outlined text-accent text-4xl">
@@ -139,9 +153,9 @@ function LoginPage() {
                   {/* Form */}
                   <form className="flex w-full flex-col gap-4 py-3" onSubmit={handleSubmit}>
                     
-                    {/* Error Message Display */}
+                    {/* Error Message Display (Added prominent styling) */}
                     {error && (
-                      <div className="p-3 rounded-lg bg-red-100 text-red-800 border border-red-300 dark:bg-red-900/50 dark:text-red-200 dark:border-red-700">
+                      <div className="relative p-3 rounded-lg bg-red-600 text-white border border-red-700 dark:bg-red-800 dark:border-red-900 shadow-md">
                         <p>{error}</p>
                       </div>
                     )}
@@ -222,8 +236,9 @@ function LoginPage() {
                               className="form-input h-14 w-full flex-1 resize-none overflow-hidden rounded-lg border border-gray-300 bg-background-light p-[15px] pl-12 text-base font-normal leading-normal text-text-light placeholder:text-secondary focus:border-accent focus:outline-0 focus:ring-2 focus:ring-accent/20 dark:border-gray-600 dark:bg-gray-800 dark:text-text-dark dark:placeholder:text-gray-400"
                               placeholder="Enter the 6-digit code"
                               type="text"
+                              maxLength={6} // Limit length
                               value={otp}
-                              onChange={(e) => setOtp(e.target.value)}
+                              onChange={handleOtpChange} // Use new handler
                               required
                             />
                           </div>
@@ -277,6 +292,9 @@ function LoginPage() {
           </div>
         </div>
       </div>
+
+      {/* 2. Footer is now at the end */}
+      <Footer />
     </div>
   );
 }
