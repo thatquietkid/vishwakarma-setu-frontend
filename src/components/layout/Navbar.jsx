@@ -27,16 +27,16 @@ function Navbar() {
       return [
         { name: 'All Machines', to: '/search' },
         { name: 'Sell Machine', to: '/sell' },
-        { name: 'About Us', href: '#' },
-        { name: 'Help Center', href: '#' },
+        { name: 'About Us', href: '/about' },
+        { name: 'Contact', href: '/contact' },
       ];
     }
     // Default / Home
     return [
       { name: 'Browse Machines', to: '/search' },
       { name: 'Sell a Machine', to: '/sell' },
-      { name: 'About Us', href: '#' },
-      { name: 'Contact', href: '#' },
+      { name: 'About Us', href: '/about' },
+      { name: 'Contact', href: '/contact' },
     ];
   })();
 
